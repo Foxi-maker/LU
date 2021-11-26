@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 {
 	int N = 4096;
 	int num_th = 4;
-	int block_size = 64;
+	int block_size = 32;
 	double min = -100., max = 100.;
 	double t1, t2;
 
@@ -231,7 +231,7 @@ void check_parallel(double** A, double** L, double** U, int N)
 
 	int check = 0;
 
-#pragma omp parallel for shared(B, L, U, A, check, eps)
+#pragma omp parallel for 
 	for (int i = 0; i < N; i++)
 	{
 		for (int j = 0; j < N; j++)
